@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>课程助手 · API 设置</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="options">
+  <header><h1>API 设置</h1></header>
+  <form id="api">
+    <p>使用兼容 Chat Completions 的 API。保存时浏览器会请求访问该 API 域名。</p>
+    <label>完整 API 地址（HTTPS 或本机 HTTP） <input id="url" type="url" placeholder="https://example.com/v1/chat/completions" required></label>
+    <label>模型 <input id="model" type="text" placeholder="供应商提供的模型名称" maxlength="160" required></label>
+    <label>API 密钥 <input id="key" type="password" maxlength="4096" autocomplete="off" placeholder="服务无需认证时可留空"></label>
+    <button id="save" type="submit" disabled>保存设置</button>
+    <p id="status" role="status" aria-live="polite"></p>
+  </form>
+  <script src="shared.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

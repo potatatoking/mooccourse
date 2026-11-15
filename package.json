@@ -1,0 +1,10 @@
+{
+  "name": "course-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "lint": "node --check extension/content.js && node --check extension/shared.js && node --check extension/popup.js && node --check extension/options.js && node --check extension/worker.js"
+  }
+}

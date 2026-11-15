@@ -1,0 +1,43 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>考试答题</title>
+<style>.j-choicebox input { display: none; }</style>
+<h1>期末考试</h1>
+<svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="5"></circle></svg>
+<div class="m-choiceQuestion u-questionItem examMode">
+  <h3>单选题</h3>
+  <div class="j-title title f-cb">二加二等于多少？<img data-src="//edu-image.nosdn.127.net/fixture-formula.png"></div>
+  <div class="j-choicebox">
+    <ul>
+      <li><input type="radio" class="u-tbi" name="math" id="math-a"><label class="u-tbl" for="math-a">三</label></li>
+      <li><input type="radio" class="u-tbi" name="math" id="math-b"><label class="u-tbl" for="math-b"><img src="https://edu-image.nosdn.127.net/fixture-option.png"></label></li>
+      <li hidden><label><input type="radio" name="unused-template">备用选项</label></li>
+    </ul>
+  </div>
+</div>
+<div id="shadow"></div>
+<div data-question data-question-type="fill-blank">
+  <h3 data-question-text>填空：北京是__的首都，巴黎是__的首都。</h3>
+  <input type="text" value="中国"><input type="text">
+</div>
+<video aria-label="预览" width="100" height="75"></video>
+<video aria-label="课程" width="300" height="150"></video>
+<button type="button" id="submit">交卷</button>
+<script>
+  const root = document.getElementById("shadow").attachShadow({ mode: "closed" });
+  const item = document.createElement("div");
+  item.dataset.question = "";
+  item.dataset.questionType = "fill-blank";
+  const stem = document.createElement("h3");
+  stem.dataset.questionText = "";
+  stem.textContent = "填空：一天有__小时，一周有__天。";
+  item.append(stem);
+  for (let i = 0; i < 2; i++) {
+    const input = document.createElement("input");
+    if (i === 0) input.type = "text";
+    input.addEventListener("input", () => { document.body.dataset["blank" + i] = input.value; });
+    item.append(input);
+  }
+  root.append(item);
+  document.getElementById("submit").onclick = () => { document.body.dataset.submitted = "true"; };
+</script>

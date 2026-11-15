@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "课程助手",
+  "version": "0.2.1",
+  "description": "控制中国大学 MOOC 的视频播放，并通过配置的 API 填写当前页答案。",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "storage",
+    "webNavigation",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.icourse163.org/*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*",
+    "http://[::1]/*"
+  ],
+  "background": {
+    "service_worker": "worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.icourse163.org/*"
+      ],
+      "all_frames": true,
+      "match_about_blank": true,
+      "js": [
+        "shared.js",
+        "content.js"
+      ]
+    }
+  ]
+}

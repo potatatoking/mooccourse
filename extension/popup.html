@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>课程助手</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="popup">
+  <header>
+    <div>
+      <h1>课程助手</h1>
+      <p id="platform">正在识别页面…</p>
+    </div>
+    <button id="settings" class="secondary" type="button">API 设置</button>
+  </header>
+  <fieldset id="playback" disabled>
+    <legend>视频</legend>
+    <label class="row">播放器 <select id="player"><option value="">自动选主播放器</option></select></label>
+    <label class="row">播放速度 <select id="rate" aria-describedby="rateLimit"></select></label>
+    <p id="rateLimit">Chrome 原生视频最高 16×。</p>
+    <label class="row">自动开始播放 <input id="autoplay" type="checkbox"></label>
+    <label class="row">续播本节下一段 <input id="next" type="checkbox"></label>
+    <label class="row">播完自动播放下一集 <input id="nextEpisode" type="checkbox"></label>
+  </fieldset>
+  <fieldset id="questions" disabled>
+    <legend>当前页答题</legend>
+    <p>题目、选项及支持的图片链接将发送给已配置的 API。答案填入后可检查再提交。</p>
+    <button id="solve" type="button">一键填写当前页</button>
+  </fieldset>
+  <p id="status" role="status" aria-live="polite"></p>
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
